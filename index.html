@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gestionnaire de tâches</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="entete">
+    <h1>Mes tâches</h1>
+  </header>
+
+  <main class="page">
+    <section class="panneau" aria-labelledby="titre-form">
+      <h2 id="titre-form">Nouvelle tâche</h2>
+      <form id="form-tache" novalidate>
+        <label for="titre">Titre (obligatoire)</label>
+        <input id="titre" type="text" maxlength="80" autocomplete="off">
+
+        <label for="description">Description</label>
+        <textarea id="description" rows="3"></textarea>
+
+        <label for="statut">Statut</label>
+        <select id="statut"></select>
+
+        <p id="erreur" class="erreur" role="alert"></p>
+
+        <div class="actions">
+          <button type="submit" id="btn-valider" class="btn">Ajouter la tâche</button>
+          <button type="button" id="btn-annuler" class="btn btn-sec" hidden>Annuler</button>
+        </div>
+      </form>
+    </section>
+
+    <section aria-labelledby="titre-liste">
+      <h2 id="titre-liste" class="sr-only">Liste des tâches</h2>
+      <div class="outils">
+        <label for="recherche" class="sr-only">Rechercher une tâche</label>
+        <input id="recherche" type="search" placeholder="Rechercher dans le titre ou la description">
+        <div id="filtres" class="filtres" role="group" aria-label="Filtrer par statut"></div>
+      </div>
+      <div id="taches" class="taches"></div>
+      <p id="vide" class="vide" hidden></p>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
